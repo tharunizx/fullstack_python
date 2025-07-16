@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='mainDiv'>Form</div>
+    <script>
+
+        const name = document.createElement('input');
+        name.placeholder='name';
+        name.id='name';
+        const age = document.createElement('input');
+        age.placeholder='age';
+        age.id='age';
+        const phone = document.createElement('input');
+        phone.placeholder='phone';
+        phone.id='phone';
+        const btn = document.createElement('button');
+        btn.type="submit";
+        btn.innerText="Submit";
+        btn.id='btn';
+        btn.addEventListener('mouseover',conformation);
+        function conformation(){
+            const conform=document.createElement('div');
+            conform.id='conform';
+            document.getElementById('mainDiv').appendChild(conform);
+            const yes=document.createElement('button');
+            yes.innerHTML='Yes';
+            yes.onclick=yes1;     
+            const no=document.createElement('button');
+            no.innerHTML='No';
+            document.getElementById('conform').appendChild(yes);
+            document.getElementById('conform').appendChild(no);
+            btn.removeEventListener('mouseover',conformation);
+        };
+        const div1=document.createElement('div');
+        const div2=document.createElement('div');
+        const div3=document.createElement('div');
+        const div4=document.createElement('div');
+        document.getElementById('mainDiv').appendChild(div1);
+        document.getElementById('mainDiv').appendChild(name);
+        document.getElementById('mainDiv').appendChild(div2);
+        document.getElementById('mainDiv').appendChild(age);
+        document.getElementById('mainDiv').appendChild(div3);
+        document.getElementById('mainDiv').appendChild(phone);
+        document.getElementById('mainDiv').appendChild(div4);
+        document.getElementById('mainDiv').appendChild(btn);
+        const op=document.createElement('div');
+        document.getElementById('mainDiv').appendChild(op);
+        function yes1(){
+            console.log("submitted");
+            const n=document.getElementById('name').value;
+            const a=document.getElementById('age').value;         
+            const p=document.getElementById('phone').value; 
+            op.innerHTML=`<h3> Form filled with details : </h3> <h4>Name: ${n} <br> Age: ${a} <br> Phone: ${p}</h4>`;
+        }
+        
+
+    </script>
+</body>
+</html>
