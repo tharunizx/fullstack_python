@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #output{
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid burlywood;
+            border-radius: 4px;
+        }
+        .message{
+            padding: 5px;
+            margin: 4px 0;
+            background-color: blueviolet;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Create & Append Elements</h2>
+    <input type="text" id="userInput" placeholder="Enter a message">
+    <button onclick="addMesage()">Add Message</button>
+    <button onclick="prependMessage()">Perpend Message</button>
+
+    <div id="output">
+        <p>Message will appear here:</p>
+    </div>
+
+    <script>
+        function addMesage(){
+            const inp=document.getElementById('userInput').value;
+            if(inp.trim()==="") return;
+
+            const a=document.createElement('div');
+            a.className='msg';
+
+            a.innerText=inp;
+
+            document.getElementById('output').appendChild(a);
+
+            document.getElementById('userInput').value="";
+        }
+
+        function prependMessage(){
+            const inp = document.getElementById('userInput').value;
+            if (inp.trim() === "") return;
+
+            const a = document.createElement('div');
+            a.className = 'msg';
+            a.innerText = inp;
+
+            const container = document.getElementById('output');
+
+            container.insertBefore(a, container.firstChild);
+        }
+
+
+        // function prependMessage(){
+        //     const inp=document.getElementById('userInput').value;
+        //     if(inp.trim()=="") return;
+
+        //     const a=document.createElement('div');
+        //     a.className='msg';
+
+        //     a.innerText=inp;
+
+        //     const container=document.getElementById('output');
+
+        //     container.insertBefore(a,container.children);
+
+        // }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Form Handling Example</title>
+ <style>
+   form {
+     margin-bottom: 15px;
+   }
+   #result {
+     padding: 10px;
+     border: 1px solid #ccc;
+     background: #f8f8f8;
+   }
+   .error {
+     color: red;
+   }
+ </style>
+</head>
+<body>
+
+ <h2>Simple Form</h2>
+
+ <form id="userForm">
+   <label>Name: <input type="text" id="name" required></label><br><br>
+   <label>Email: <input type="email" id="email" required></label><br><br>
+   <button type="submit">Submit</button>
+ </form>
+
+ <div id="result"></div>
+
+ <script>
+    document.getElementById('userForm').addEventListener('submit',function(e){
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const result = document.getElementById('result');
+
+        if(!name || !email){
+            result.innerHTML = "<p class='error'>Both fields are required</p>";
+            return;
+        }
+
+        result.innerHTML = "<h3>Form data recived:</h3><p>name : ${name}</p> <p>Email: ${email}</p>";
+
+        //document.getElementById('userForm').reset();
+    });
+    
+
+
+ </script>
+
+
+ </body>
+ </html>
